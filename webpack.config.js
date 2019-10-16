@@ -8,7 +8,7 @@ module.exports = (env, {mode}) => {
   console.log(mode);
   return {
     output: {
-      path: `${__dirname  }/public`,
+      path: `${__dirname  }/dist`,
       filename: '[name].[hash].js'
     },
     devServer: {

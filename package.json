@@ -28,8 +28,7 @@
   },
   "scripts": {
     "dev": "webpack-dev-server --mode development",
-    "prod": "rm -rf public/ && webpack --mode production",
-    "build": "yarn prod "
+    "prod": "rm -rf dist/ && webpack --mode production",
   },
   "browserslist": [
     "last 2 versions",
