@@ -16,7 +16,7 @@ const init = data => {
     if (coffee.plantbased === true) {
       const $li = document.createElement('li');
       $li.classList.add('price');
-      $li.dataset.id = `${coffee.id}`
+      $li.dataset.id = `${coffee.id}`;
       $pricesList.appendChild($li);
 
       const $a = document.createElement('a');
@@ -39,9 +39,8 @@ const init = data => {
 
       const $spanPlus = document.createElement('span');
       $spanPlus.classList.add('price__button__plus');
-      $spanPlus.textContent ='+';
+      $spanPlus.textContent = '+';
       $a.appendChild($spanPlus);
-
     }
   });
 };
