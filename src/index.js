@@ -1,5 +1,5 @@
 import './style.css';
-import {devineLog} from './js/utility/helpers';
+import { devineLog } from './js/utility/helpers';
 import data from './assets/data/coffees.json';
 
 devineLog('Hey, ik ben een JS file');
@@ -45,7 +45,7 @@ const init = data => {
 
       orders.forEach(order => {
         if (order['id'] === $id) {
-          order.hoeveelheid ++;
+          order.hoeveelheid++;
         }
       });
       showOrder(orders, data);
@@ -76,13 +76,8 @@ const showOrder = (orders, data) => {
           //orderName
           const $spanName = document.createElement('span');
           $spanName.classList.add('order__name');
-          $spanName.textContent = `${coffee.name}`;
           $li.appendChild($spanName);
-          //amount
-          const $spanamount = document.createElement('span');
-          $spanamount.classList.add('order__amount');
-          $spanamount.textContent = `${order.hoeveelheid}x`;
-          $spanName.appendChild($spanamount);
+          $spanName.innerHTML += `<span class="order__amount">${order.hoeveelheid}x</span>${coffee.name}`;
           //price
           const $spanPrice = document.createElement('span');
           $spanPrice.classList.add('order__price');

@@ -98,7 +98,7 @@ header {
   align-items: center;
   background-color: white;
   padding: var('--marginSmall');
-  border-radius: .5rem;
+  border-radius: 0.5rem;
 }
 
 .price__button__wrapper {
@@ -114,7 +114,7 @@ header {
   background-color: var('--buttonColor');
   font-size: var('--fontsizeMedium');
   padding: 1rem;
-  border-radius: .5rem;
+  border-radius: 0.5rem;
   width: 1.5rem;
   height: 1.5rem;
   display: flex;
@@ -134,7 +134,7 @@ header {
   text-transform: capitalize;
   margin-top: var('--marginSmall');
   padding-bottom: 1rem;
-  border-bottom: .1rem solid #fafafa;
+  border-bottom: 0.1rem solid #fafafa;
   display: grid;
   grid-template-rows: 1fr;
   grid-template-columns: 8fr 3fr;
@@ -158,7 +158,7 @@ header {
 
 .order__amount {
   color: var('--pinkColor');
-  margin-right: .3rem;
+  margin-right: 0.3rem;
 }
 
 .order__name {
@@ -171,7 +171,6 @@ header {
 }
 
 @media only screen and (min-width: 368px) {
-
   .prices__list {
     grid-template-rows: 6.3rem 6.3rem 6.3rem 6.3rem 6.3rem 6.3rem 6.3rem 6.3rem;
     grid-template-columns: 17rem 17rem;
@@ -183,7 +182,6 @@ header {
 }
 
 @media only screen and (min-width: 592px) {
-
   .prices__list {
     grid-template-rows: 6.3rem;
     grid-template-columns: 25rem 25rem;
@@ -195,11 +193,10 @@ header {
 }
 
 @media only screen and (min-width: 828px) {
-
   .layout {
     display: grid;
     grid-template-columns: 3fr 5fr;
-    grid-template-rows: .7fr 2fr .4fr .1fr;
+    grid-template-rows: 0.7fr 2fr 0.4fr 0.1fr;
   }
 
   .prices {
@@ -257,7 +254,6 @@ header {
 }
 
 @media only screen and (min-width: 1080px) {
-
   .prices__list {
     grid-template-rows: 6.3rem 6.3rem 6.3rem 6.3rem 6.3rem;
     grid-template-columns: 25rem 25rem;
