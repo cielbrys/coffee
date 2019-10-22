@@ -56,7 +56,8 @@ const init = data => {
 };// end of init
 
 const showOrder = (orders, data) => {
-
+  const $ordersHTML = document.querySelector('.orders');
+  $ordersHTML.innerHTML= '';
   orders.forEach(order => {
     if (order.hoeveelheid > 0) {
       data.coffees.forEach(coffee => {
