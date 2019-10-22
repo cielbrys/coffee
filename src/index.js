@@ -52,18 +52,20 @@ const init = data => {
     });
   });
   //
-  //
-}; // end of init
+}; // end of init;
 
 const showOrder = (orders, data) => {
-  const $ordersHTML = document.querySelector('.orders');
+  const $div = document.querySelector('.orders__wrapper');
+  $div.innerHTML = ``;
+  const $ordersHTML = document.createElement('ul');
+  $ordersHTML.classList.add('orders');
+  $div.appendChild($ordersHTML);
   $ordersHTML.innerHTML = '';
   orders.forEach(order => {
     if (order.hoeveelheid > 0) {
       data.coffees.forEach(coffee => {
         if (order.id === coffee.id) {
           const $ordersHTML = document.querySelector('.orders');
-
           const coffeePrice = coffee.prices.medium;
           const hoeveelheid = order.hoeveelheid;
           const total = coffeePrice * hoeveelheid;
@@ -91,11 +93,54 @@ const showOrder = (orders, data) => {
           const $button = document.createElement('button');
           $button.classList.add('remove');
           $button.textContent = `X`;
+          $button.dataset.id = `${coffee.id}`;
           $li.appendChild($button);
+          $button.addEventListener('click', function() {
+            console.log('remover');
+            const $idString = this.dataset.id;
+            const $id = parseInt($idString, 10);
+            orders.forEach(order => {
+              if (order['id'] === $id) {
+                order.hoeveelheid = 0;
+              }
+            });
+            showOrder(orders, data);
+          });
         }
       });
     }
   });
+  getTotal(orders, data);
+};
+
+const getTotal = (orders, data) => {
+  const prijsOat = data.coffees[0].prices.medium * orders[0].hoeveelheid;
+  const prijsSoy = data.coffees[2].prices.medium * orders[1].hoeveelheid;
+  const prijsRice = data.coffees[3].prices.medium * orders[2].hoeveelheid;
+  const prijsKoko = data.coffees[4].prices.medium * orders[3].hoeveelheid;
+  const prijsAlm = data.coffees[5].prices.medium * orders[4].hoeveelheid;
+  const total = prijsAlm + prijsKoko + prijsOat + prijsRice + prijsSoy;
+  showTotal(total);
+};
+
+const showTotal = total => {
+  const $div = document.querySelector('.orders__wrapper');
+
+  const $totaal = document.createElement('p');
+  $totaal.classList.add('total');
+  $div.appendChild($totaal);
+
+  $totaal.innerHTML = '';
+
+  const $spanLabel = document.createElement('span');
+  $spanLabel.classList.add('total__label');
+  $spanLabel.textContent = 'Total';
+  $totaal.appendChild($spanLabel);
+
+  const $spanPrice = document.createElement('span');
+  $spanPrice.classList.add('total__price');
+  $spanPrice.textContent = `€ ${total}`;
+  $totaal.appendChild($spanPrice);
 };
 
 const ophalen = data => {
