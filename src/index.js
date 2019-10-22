@@ -1,5 +1,5 @@
 import './style.css';
-import { devineLog } from './js/utility/helpers';
+import {devineLog} from './js/utility/helpers';
 import data from './assets/data/coffees.json';
 
 devineLog('Hey, ik ben een JS file');
@@ -53,11 +53,11 @@ const init = data => {
   });
   //
   //
-};// end of init
+}; // end of init
 
 const showOrder = (orders, data) => {
   const $ordersHTML = document.querySelector('.orders');
-  $ordersHTML.innerHTML= '';
+  $ordersHTML.innerHTML = '';
   orders.forEach(order => {
     if (order.hoeveelheid > 0) {
       data.coffees.forEach(coffee => {

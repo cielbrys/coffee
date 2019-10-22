@@ -1,7 +1,18 @@
 :root {
-  --mainColor: #f9d2cb;
-  --darkColor: #212121;
-  --secondaryColor: #a3f4dc;
+  --pinkColor: #f9d2cb;
+  --textColor: #212121;
+  --buttonColor: #a3f4dc;
   --grayColor: #9c9c9c;
-  --margin: 2rem;
+  --marginTiny: .6rem;
+  --marginSmall: 1.2rem;
+  --marginMedium: 3rem;
+  --marginBig: 5rem;
+  --marginGrand: 14.5rem;
+  --fontweightThin: 400;
+  --fontweightFat: 700;
+  --fontsizeSmall: 1.2rem;
+  --fontsizeMedium: 1.8rem;
+  --fontsizebig: 2.5rem;
+  --fontsizeGrand: 3.5rem;
+  --fontfamily: roboto, sans-serif;
 }
