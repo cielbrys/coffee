@@ -10,7 +10,94 @@ ES6Stuff();
 
 console.log(data);
 
+const orders = [
+  {
+    id: 1,
+    hoeveelheid: 0
+  },
+  {
+    id: 2,
+    hoeveelheid: 0
+  },
+  {
+    id: 3,
+    hoeveelheid: 0
+  },
+  {
+    id: 4,
+    hoeveelheid: 0
+  },
+  {
+    id: 5,
+    hoeveelheid: 0
+  }
+];
+
 const init = data => {
+  ophalen(data);
+
+  const $buttons = document.querySelectorAll('.price');
+  $buttons.forEach($button => {
+    $button.addEventListener('click', function() {
+      console.log('ok');
+      const $idString = this.dataset.id;
+      const $id = parseInt($idString, 10);
+
+      orders.forEach(order => {
+        if (order['id'] === $id) {
+          order.hoeveelheid ++;
+        }
+      });
+      showOrder(orders, data);
+    });
+  });
+  //
+  //
+};// end of init
+
+const showOrder = (orders, data) => {
+
+  orders.forEach(order => {
+    if (order.hoeveelheid > 0) {
+      data.coffees.forEach(coffee => {
+        if (order.id === coffee.id) {
+          const $ordersHTML = document.querySelector('.orders');
+
+          const coffeePrice = coffee.prices.medium;
+          const hoeveelheid = order.hoeveelheid;
+          const total = coffeePrice * hoeveelheid;
+          //li
+          const $li = document.createElement('li');
+          $li.classList.add('order');
+          $ordersHTML.appendChild($li);
+          //orderName
+          const $spanName = document.createElement('span');
+          $spanName.classList.add('order__name');
+          $spanName.textContent = `${coffee.name}`;
+          $li.appendChild($spanName);
+          //amount
+          const $spanamount = document.createElement('span');
+          $spanamount.classList.add('order__amount');
+          $spanamount.textContent = `${order.hoeveelheid}x`;
+          $spanName.appendChild($spanamount);
+          //price
+          const $spanPrice = document.createElement('span');
+          $spanPrice.classList.add('order__price');
+          $spanPrice.textContent = `€ ${total}`;
+          $li.appendChild($spanPrice);
+
+          //button
+          const $button = document.createElement('button');
+          $button.classList.add('remove');
+          $button.textContent = `X`;
+          $li.appendChild($button);
+        }
+      });
+    }
+  });
+};
+
+const ophalen = data => {
   const $pricesList = document.querySelector('.prices__list');
   data.coffees.forEach(coffee => {
     if (coffee.plantbased === true) {
