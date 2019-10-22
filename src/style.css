@@ -158,7 +158,7 @@ header {
 
 .order__amount {
   color: var('--pinkColor');
-  margin-right: 0.3rem;
+  margin-right: 1rem;
 }
 
 .order__name {
